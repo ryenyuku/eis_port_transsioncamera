@@ -11,7 +11,7 @@ This is an attempt to port the EIS functionality that came with the stock rom ca
 
 ## Porting the camera server
 This is the hardest part where I've been stuck for days, it is extremely painful. You can continue where I left off by installing the zip file as a Magisk/KSU module or start by your own.
-If you want to start by your own, you can get the `cameraserver` binary in `/system/bin/cameraserver` and resolving its dependencies by using `ldd /system/bin/cameraserver` or `linker64 --list /system/bin/cameraserver`.
+If you want to start by your own, you can get the `cameraserver` binary in `/system/bin/cameraserver` and resolving its dependencies by using `ldd <executable path>` or `linker64 --list <executable/library path>`.
 
 Once you get all the dependencies put in place (or if you continue where I left off), the camera server will still not run. This is because it is missing some symbols/functions from other dependencies. You can get an insight to what library is using/defining the function, but you can't simply retrofit it. If you do, then it will cause a chain reaction where that library is missing some functions call or other libraries used in the system is missing the functions defined in that library.
 
